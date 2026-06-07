@@ -18,6 +18,12 @@
 <body>
 <p th:text="${'실습 수행 일시: ' + #temporals.format(#temporals.createNow(), 'yyyy년 MM월 dd일 HH:mm:ss')
         + ' | 학번: 2171122 | 성명: 신현규'}" style="color: black"></p>
+
+<!-- 비밀번호 변경 성공 메시지 표시 -->
+<div th:if="${successMessage}" class="container mb-2">
+    <div class="alert alert-success py-2 px-3 mb-0 small" role="alert" th:text="${successMessage}"></div>
+</div>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark mb-4">
     <div class="container">
@@ -54,6 +60,7 @@
                   class="badge bg-white text-dark badge-role me-1"
                   th:text="${role}"></span>
         </div>
+        <a th:href="@{/user/password}" class="btn btn-outline-light btn-sm mt-2">비밀번호 변경</a>
     </div>
 
     <!-- Quick Links -->
